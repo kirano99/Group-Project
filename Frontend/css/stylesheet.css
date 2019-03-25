@@ -175,6 +175,26 @@ header {
   padding-right:0px;
   padding-left: 0px;
 }
+.squarea img{
+width: 120px;
+  height: 120px;
+display: inline;
+padding:5px;
+}
+fa fa-trash
+{
+align-items: center;
+}
+.shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+.whitespace{
+
+  width: 20px;
+}
 /* RESPONSIVE */
 @media only screen and (max-width: 898px) {
 
@@ -282,6 +302,7 @@ header {
     -ms-transform: translateY(0%);
     transform: translateY(0%);
   }
+
 }
 @media only screen and (max-height: 898px) {
   .signinform{
