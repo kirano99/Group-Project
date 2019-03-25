@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="signupForm" name="signupForm" onsubmit="return validateForm()" action="includes/signup_validation.php" method="POST">
+    <form id="signupForm" name="signupForm" action="includes/signup_validation.php" method="POST">
         <label for="email">Email:</label>
         <input type="email" id="email" placeholder="Enter email" name="email" required>
 
