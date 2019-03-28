@@ -203,9 +203,11 @@ align-items: center;
   .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
+    margin-bottom: 2.5rem
 }
 body {
   overflow-x: hidden;
+  font-size: 0.9rem;
 }
 }
 @media only screen and (max-width: 898px) {
@@ -273,11 +275,6 @@ body {
   #logo{
     display: none;
   }
-  .with--sidebar .site-pusher {
-    -webkit-transform: translateX(250px);
-    -ms-transform: translateX(250px);
-    transform: translateX(250px);
-  }
   .with--sidebar .site-cache {
     position: absolute;
     top: 0;
@@ -286,8 +283,8 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
   }
-  .bannerimg{
-    width:auto;
+  .row{
+    margin:0;
   }
   .container{
     padding-top:2rem;
@@ -303,14 +300,11 @@ body {
     width: 0px;
   }
   .col-sm-2 {
-    flex: 0 0 91%;
-    max-width: 91%;
     margin-left: 2rem;
+    margin-right: 2rem;
 }
 .col-sm-6 {
-    flex: 0 0 95%;
     margin: 1rem;
-    max-width: 95%;
 }
   .signinform{
     -webkit-transform: translateY(0%);
@@ -413,3 +407,4 @@ body {
   .modal-content {
     width: 100%;
   }
+}
