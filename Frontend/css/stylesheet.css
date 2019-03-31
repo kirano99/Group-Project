@@ -316,6 +316,15 @@ body {
     -ms-transform: translateY(0%);
     transform: translateY(0%);
   }
+  .postform{
+    margin-top: 1rem;
+  }
+  .uploadbtn{
+    margin: 1rem;
+  }
+  .postbtn{
+    margin: 1rem;
+  }
 
 }
 @media only screen and (max-height: 898px) {
