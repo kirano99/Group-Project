@@ -1,4 +1,7 @@
 window.onload = function(){
+    
+    var tmp_id;
+    
     $('#exampleModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
@@ -100,6 +103,29 @@ window.onload = function(){
         });
     });
     
+    $(".Delbtn").click(function (){
+        var obj = this.id;
+        var clsobj = this.className;
+        
+        $.ajax ({
+            type: 'POST',
+            url: 'includes/like.php',
+            data: {
+                check:clsobj,
+                P_id: obj
+            },
+            
+             success: function(data) {
+                console.log(data);
+                 location.reload();
+            },
+             error: function (xhr, ajaxOptions, thrownError) {
+                   alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+                 
+            },
+        })
+    });
+    
         $("button#CreateSub").click(function (){
         var sid = $("#studentid2").val();
         var pass = $("#password2").val();
@@ -150,4 +176,86 @@ window.onload = function(){
             }
         }) 
     });
+    
+    $("button#post_btn").click(function (){
+        var val = $("#post_txt").val();
+        var tit = $("#title_txt").val();
+        
+        if (tit==""||val=="")
+            $("#PostAck").html("Please fill all the details");
+        else {
+        $.ajax ({
+            type: 'POST',
+            url:'includes/post.php',
+            data: {
+                check:"insert",
+                txt:val,
+                title:tit
+            },
+            
+            success:function(response) {
+                if (response==1)
+                    {
+                        alert("Post made");
+                        location.reload();
+                    } else {
+                        msg = "Failed to create post";
+                    }
+                $("#PostAck").html(msg);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+            }
+            });
+        }
+        $("#MyPost").submit( function(){
+            return false;
+        });
+    });
+    
+    $("button.Edtbtn").click(function (){
+        tmp_id = this.id;
+        
+        
+        $.ajax ({
+            type: 'POST',
+            url: 'includes/gather.php',
+            dataType: "json",
+            data: {
+                check: "check",
+                id: tmp_id
+            },
+            
+            success:function(response) {
+                document.getElementById("dash").value = response;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+            },
+        });
+    });
+    
+    $("#ChngPost").click(function (){
+        var obj = $("#dash").val();
+        
+        $.ajax ({
+           type: 'POST',
+            url: 'includes/post.php',
+            data: {
+                check: "alter",
+                id: tmp_id,
+                txt:obj
+            },
+            
+            success:function(response) {
+                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+            },
+        });
+    });
 }
+                          

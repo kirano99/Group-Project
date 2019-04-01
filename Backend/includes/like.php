@@ -32,5 +32,13 @@ if(isset($_POST['check'])) {
             mysqli_query($conn, $sql);
             echo "1";
             break;
+            
+        case 'Delbtn':
+            $sql = "DELETE FROM posts
+                    WHERE P_id = {$id}
+                    LIMIT 1";
+            mysqli_query($conn, $sql);
+            echo "1";
+            break;
     }
 } 

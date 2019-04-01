@@ -6,7 +6,7 @@ session_start();
 
 require 'includes/db.php';
 
-$result = $conn->query("SELECT posts.P_id, posts.P_description, posts.P_Title FROM posts");
+$result = $conn->query("SELECT posts.U_id, posts.P_id, posts.P_description, posts.P_Title FROM posts");
 mysqli_close($conn);
 
 
@@ -33,7 +33,7 @@ function redirect($url)
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Marble Management Systems</title>
+    <title>SwanHub</title>
 </head>
    <div class="site-container"> 
        <div class="site-pusher">
