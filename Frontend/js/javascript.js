@@ -1,4 +1,4 @@
-//$('select').selectpicker();
+$('select').selectpicker();
 
 $(document).ready(function() {
     var brand = document.getElementById('logo-id');
