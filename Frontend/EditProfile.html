@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="js/javascript.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="css/stylesheet.css">
+
     <title>Edit Swanhub Profile</title>
   </head>
   <body>
@@ -32,59 +35,99 @@
           <div class="row">
             <div class="col-sm-2 links">
               <img src="assets/account1.jpg" class="rounded profileimage" >
-
               <div>
-              <h3>Ronald McDonald Trump</h3>
-              <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="editprofile.html">Edit Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="courses.html">Computer Science</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">Year 2</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="socs.html">Computer Science Society</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="friends.html">Friends</a>
-                </li>
-              </ul>
-              <hr class="d-sm-none">
+                <h3>Ronald McDonald Trump</h3>
+                <ul class="nav nav-pills flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="editprofile.html">Edit Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="courses.html">Computer Science</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link">Year 2</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="socs.html">Computer Science Society</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="friends.html">Friends</a>
+                  </li>
+                </ul>
+                <hr class="d-sm-none">
               </div>
             </div>
-
             <div class="col-sm-8">
-
               <div class= "post">
-
                     <h4>Edit Bio</h4>
-
                     <div class="form-group shadow-textarea">
                       <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Edit your bio..."></textarea>
-
-                </div>
-                  <input type="submit" class="btn btn-primary" value="Post" style="float:right; margin:2px">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Post" style="float:right; margin:2px">
               </div>
-
-
               <div class="post">
+                <h2>Sign In</h2>
+                <br>
+                <form action="/action_page.php">
+                  <div class="form-group">
+                    <label for="email">First Name:</label>
+                    <input type="email" class="form-control" id="fname" placeholder="Enter first name" name="fname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Last Name:</label>
+                    <input type="password" class="form-control" id="lname" placeholder="Enter lastname" name="lname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" id="dob" name="dob"required>
+                  </div>
+                  <div class="form-group">
+                    <label for="courselist">Course:</label>
+                    <select class="form-control" id="clist" name="courselist">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Upload Image</label>
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                          Browse… <input type="file" id="imgInp">
+                        </span>
+                      </span>
+                      <input type="text" class="form-control" readonly>
+                    </div>
+                    <img id='img-upload'/>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Update Details</button>
+                </form>
+
                 <div class="userdetailsedit">
 
                   <div class="accountname">
                     <h4>Edit Details</h4>
                   </div>
                   <div class="postdatetime">
-                  <ul>Study Year :
-                      <input type="text" onfocus="this.value=''" value="Lincoln"></ul>
-
-                      <ul>Societies :
-                      <input type="text" onfocus="this.value=''" value="Movies"></ul>
-
-                      <ul> Degree :
-                      <input type="text" onfocus="this.value=''" value="ComputerScience"></ul>
+                    <ul>First Name :
+                      <input type="text" onfocus="this.value=''" value="">
+                    </ul>
+                    <ul>Last Name :
+                      <input type="text" onfocus="this.value=''" value="">
+                    </ul>
+                    <ul>Date Of Birth :
+                      <input type="date" onfocus="this.value=''" value="">
+                    </ul>
+                    <ul>Course :
+                      <input type="dropdown" onfocus="this.value=''" value="">
+                    </ul>
+                    <ul>Study Year :
+                      <input type="text" onfocus="this.value=''" value="">
+                    </ul>
+                    <ul>Societies :
+                      <input type="text" onfocus="this.value=''" value="">
+                    </ul>
+                    <ul> Degree :
+                      <input type="text" onfocus="this.value=''" value="">
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -143,7 +186,10 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
   </body>
   </html>
