@@ -167,38 +167,6 @@ header {
   margin-left: -15px;
   margin-right: -15px;
 }
-.profileimage{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  height: auto;
-}
-.profile{
-  margin-top:30px;
-  padding-right:0px;
-  padding-left: 0px;
-}
-.squarea img{
-width: 120px;
-  height: 120px;
-display: inline;
-padding:5px;
-}
-fa fa-trash
-{
-align-items: center;
-}
-.shadow-textarea textarea.form-control::placeholder {
-    font-weight: 300;
-}
-.shadow-textarea textarea.form-control {
-    padding-left: 0.8rem;
-}
-.whitespace{
-
-  width: 20px;
-}
-
 .form-control, .thumbnail {
     border-radius: 2px;
 }

@@ -4,17 +4,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="js/javascript.js"></script>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="css/stylesheet.css">
@@ -22,89 +20,78 @@
     <title>Edit Swanhub Profile</title>
   </head>
   <body>
-        <header>
-          <a href="#" class="icon" id="icon"></a>
-          <nav class="menu">
-          <a href="index.html">
-          <img alt="logo" id="logo" src="assets/logo.png">
-          </a>
-          </nav>
-          <div class="socials">
-            <a href="#"><i class="fas fa-bell"></i></a>
-            <a href="#"><i class="fas fa-comment"></i></a>
-            <a href="account.html"><i class="fas fa-user"></i></a>
-          </div>
-        </header>
-        <div class="container-fluid profile">
-          <div class="row">
-            <div class="col-sm-3 whitespace">
+    <header>
+      <a href="#" class="icon" id="icon"></a>
+      <nav class="menu">
+      <a href="index.html">
+      <img alt="logo" id="logo" src="assets/logo.png">
+      </a>
+      </nav>
+      <div class="socials">
+        <a href="#"><i class="fas fa-bell"></i></a>
+        <a href="#"><i class="fas fa-comment"></i></a>
+        <a href="account.html"><i class="fas fa-user"></i></a>
+      </div>
+    </header>
+    <div class="container-fluid profile">
+      <div class="row">
+        <div class="col-sm-3 whitespace">
+        </div>
+        <div class="col-sm-6">
+          <div class= "post">
+            <h4>Edit Bio</h4>
+            <div class="form-group shadow-textarea">
+              <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Edit your bio..."></textarea>
+              <br>
+              <input type="submit" class="btn btn-primary" value="Post" style="float:right; margin:2px">
+              <br>
             </div>
-            <div class="col-sm-6">
-              <div class= "post">
-                    <h4>Edit Bio</h4>
-                    <div class="form-group shadow-textarea">
-                      <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Edit your bio..."></textarea>
-                      <br>
-                      <input type="submit" class="btn btn-primary" value="Post" style="float:right; margin:2px">
-                      <br>
-                    </div>
-
+          </div>
+          <div class="post">
+            <h2>Update Details</h2>
+            <br>
+            <form action="/action_page.php">
+              <div class="form-group">
+                <label for="email">First Name:</label>
+                <input type="email" class="form-control" id="fname" placeholder="Enter first name" name="fname" required>
               </div>
-              <div class="post">
-                <h2>Update Details</h2>
-                <br>
-                <form action="/action_page.php">
-                  <div class="form-group">
-                    <label for="email">First Name:</label>
-                    <input type="email" class="form-control" id="fname" placeholder="Enter first name" name="fname" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="pwd">Last Name:</label>
-                    <input type="password" class="form-control" id="lname" placeholder="Enter lastname" name="lname" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="dob">Date of Birth:</label>
-                    <input type="date" class="form-control" id="dob" name="dob"required>
-                  </div>
-                  <div class="form-group">
-                    <label for="courselist">Course:</label>
-                    <select class="form-control" id="clist" name="courselist">
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <div class="main-img-preview">
-                      <img class="thumbnail img-preview" src="" title="Preview Logo">
-                    </div>
-                    <br>
-                    <div class="input-group">
-
-                      <input id="fakeUploadLogo" class="form-control fake-shadow" placeholder="Choose File" disabled="disabled">
-                      <div class="input-group-btn">
-                        <div class="fileUpload btn fake-shadow">
-                          <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
-                          <input id="logo-id" name="logo" type="file" class="attachment_upload">
-                        </div>
-                      </div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-
-                  </form>
+              <div class="form-group">
+                <label for="pwd">Last Name:</label>
+                <input type="password" class="form-control" id="lname" placeholder="Enter lastname" name="lname" required>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob"required>
+              </div>
+              <div class="form-group">
+                <label for="courselist">Course:</label>
+                <select class="form-control" id="clist" name="courselist">
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="main-img-preview">
+                  <img class="thumbnail img-preview" src="http://farm4.static.flickr.com/3316/3546531954_eef60a3d37.jpg" title="Preview Logo">
                 </div>
-
-
-
-              </div>
-              <div class="col-sm-3 whitespace">
-              </div>
-
-
-            <!-- <div class="col-sm-2" id="whitespace">
-            </div> -->
+                <div class="input-group">
+                  <input id="fakeUploadLogo" class="form-control fake-shadow" placeholder="Choose File" disabled="disabled">
+                  <div class="input-group-btn">
+                    <div class="fileUpload btn fake-shadow">
+                      <span><i class="glyphicon glyphicon-upload"></i> Upload Image</span>
+                      <input id="logo-id" name="logo" type="file" class="attachment_upload">
+                    </div>
+                  </div>
+                </div>
+              <div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
           </div>
         </div>
-        <div class="site-cache" id="site-cache"></div>
+        <div class="col-sm-3 whitespace">
+        </div>
+      </div>
+    </div>
+    <div class="site-cache" id="site-cache"></div>
   </body>
 
   <!-- Optional JavaScript -->
