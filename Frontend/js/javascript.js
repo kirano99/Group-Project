@@ -1,37 +1,24 @@
-$('select').selectpicker();
+//$('select').selectpicker();
 
-$(document).ready( function() {
-    	$(document).on('change', '.btn-file :file', function() {
-		var input = $(this),
-			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-		input.trigger('fileselect', [label]);
-		});
+$(document).ready(function() {
+    var brand = document.getElementById('logo-id');
+    brand.className = 'attachment_upload';
+    brand.onchange = function() {
+        document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+    };
 
-		$('.btn-file :file').on('fileselect', function(event, label) {
+    // Source: http://stackoverflow.com/a/4459419/6396981
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-		    var input = $(this).parents('.input-group').find(':text'),
-		        log = label;
-
-		    if( input.length ) {
-		        input.val(log);
-		    } else {
-		        if( log ) alert(log);
-		    }
-
-		});
-		function readURL(input) {
-		    if (input.files && input.files[0]) {
-		        var reader = new FileReader();
-
-		        reader.onload = function (e) {
-		            $('#img-upload').attr('src', e.target.result);
-		        }
-
-		        reader.readAsDataURL(input.files[0]);
-		    }
-		}
-
-		$("#imgInp").change(function(){
-		    readURL(this);
-		});
-	});
+            reader.onload = function(e) {
+                $('.img-preview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#logo-id").change(function() {
+        readURL(this);
+    });
+});

@@ -4,6 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -16,8 +22,6 @@
     <title>Edit Swanhub Profile</title>
   </head>
   <body>
-    <div class="site-container">
-      <div class="site-pusher">
         <header>
           <a href="#" class="icon" id="icon"></a>
           <nav class="menu">
@@ -33,40 +37,21 @@
         </header>
         <div class="container-fluid profile">
           <div class="row">
-            <div class="col-sm-2 links">
-              <img src="assets/account1.jpg" class="rounded profileimage" >
-              <div>
-                <h3>Ronald McDonald Trump</h3>
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="editprofile.html">Edit Profile</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="courses.html">Computer Science</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link">Year 2</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="socs.html">Computer Science Society</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="friends.html">Friends</a>
-                  </li>
-                </ul>
-                <hr class="d-sm-none">
-              </div>
+            <div class="col-sm-3 whitespace">
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-6">
               <div class= "post">
                     <h4>Edit Bio</h4>
                     <div class="form-group shadow-textarea">
                       <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Edit your bio..."></textarea>
+                      <br>
+                      <input type="submit" class="btn btn-primary" value="Post" style="float:right; margin:2px">
+                      <br>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="Post" style="float:right; margin:2px">
+
               </div>
               <div class="post">
-                <h2>Sign In</h2>
+                <h2>Update Details</h2>
                 <br>
                 <form action="/action_page.php">
                   <div class="form-group">
@@ -87,91 +72,32 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label>Upload Image</label>
+                    <div class="main-img-preview">
+                      <img class="thumbnail img-preview" src="" title="Preview Logo">
+                    </div>
+                    <br>
                     <div class="input-group">
-                      <span class="input-group-btn">
-                        <span class="btn btn-default btn-file">
-                          Browse… <input type="file" id="imgInp">
-                        </span>
-                      </span>
-                      <input type="text" class="form-control" readonly>
+
+                      <input id="fakeUploadLogo" class="form-control fake-shadow" placeholder="Choose File" disabled="disabled">
+                      <div class="input-group-btn">
+                        <div class="fileUpload btn fake-shadow">
+                          <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
+                          <input id="logo-id" name="logo" type="file" class="attachment_upload">
+                        </div>
+                      </div>
                     </div>
-                    <img id='img-upload'/>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Update Details</button>
-                </form>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
 
-                <div class="userdetailsedit">
-
-                  <div class="accountname">
-                    <h4>Edit Details</h4>
-                  </div>
-                  <div class="postdatetime">
-                    <ul>First Name :
-                      <input type="text" onfocus="this.value=''" value="">
-                    </ul>
-                    <ul>Last Name :
-                      <input type="text" onfocus="this.value=''" value="">
-                    </ul>
-                    <ul>Date Of Birth :
-                      <input type="date" onfocus="this.value=''" value="">
-                    </ul>
-                    <ul>Course :
-                      <input type="dropdown" onfocus="this.value=''" value="">
-                    </ul>
-                    <ul>Study Year :
-                      <input type="text" onfocus="this.value=''" value="">
-                    </ul>
-                    <ul>Societies :
-                      <input type="text" onfocus="this.value=''" value="">
-                    </ul>
-                    <ul> Degree :
-                      <input type="text" onfocus="this.value=''" value="">
-                    </ul>
-                  </div>
+                  </form>
                 </div>
+
+
+
               </div>
-
-
-
-<div class="container-fluid profile">
-              <div class="post">
-
-                  <div class="accountname">
-                    <h4>Edit Friends</h4>
-                  </div>
-
-                  <div class="row">
-                  <div class="columnSqu">
-                    <div class="squarea">
-                      <img  src="assets/account1.jpg"alt="ProfileImage" onclick="myFunction(this);" class"square">
-                    </div>
-                    <button class="btn"><i class="fa fa-trash"></i></button>
-                  </div>
-
-                  <div class="columnSqu">
-                    <div class="squarea">
-                      <img src="assets/account2.jpg" alt="Profileimage" onclick="myFunction(this);">
-                    </div>
-                      <button class="btn"><i class="fa fa-trash"></i></button>
-                  </div>
-
-                  <div class="columnSqu">
-                    <div class="squarea">
-                      <img src="assets/account3.jpg" alt="ProfileImage" onclick="myFunction(this);">
-                    </div>
-                      <button class="btn"><i class="fa fa-trash"></i></button>
-                  </div>
-
-                  <div class="columnSqu">
-                    <div class="squarea">
-                      <img src="assets/account4.jpg" alt="ProfileImage" onclick="myFunction(this);">
-                    </div>
-                    <button class="btn"><i class="fa fa-trash"></i></button>
-                  </div>
-                </div>
-            </div>
-          </div>
+              <div class="col-sm-3 whitespace">
+              </div>
 
 
             <!-- <div class="col-sm-2" id="whitespace">
@@ -179,17 +105,10 @@
           </div>
         </div>
         <div class="site-cache" id="site-cache"></div>
-      </div> <!-- END site-pusher -->
-    </div> <!-- END site-container -->
   </body>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
   </body>
   </html>
