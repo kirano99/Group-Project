@@ -12,7 +12,7 @@ if(isset($_POST['check']))
             $title = mysqli_real_escape_string($conn, $_POST['title']);
             $studid = $_SESSION['U_id'];
 
-            $sql = "INSERT INTO posts (P_description, P_Title, U_id) VALUES ('$post', '$title', '$studid')";
+            $sql = "INSERT INTO POSTS (Body, Title, UserID) VALUES ('$post', '$title', '$studid')";
 
             if (mysqli_query($conn, $sql)) {
                 echo "1";
@@ -24,9 +24,9 @@ if(isset($_POST['check']))
         case 'alter':
             $id = mysqli_real_escape_string($conn, $_POST['id']);
             $obj = mysqli_real_escape_string($conn, $_POST['txt']);
-            $text = "UPDATE posts
-            SET P_description='$obj'
-            WHERE P_id='$id'";
+            $text = "UPDATE POSTS
+            SET Body='$obj'
+            WHERE PostID='$id'";
             
             if (mysqli_query($conn, $text)) {
                 echo "1";

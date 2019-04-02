@@ -6,7 +6,7 @@ session_start();
 
 require 'includes/db.php';
 
-$result = $conn->query("SELECT posts.U_id, posts.P_id, posts.P_description, posts.P_Title FROM posts");
+$result = $conn->query("SELECT POSTS.UserID, POSTS.PostID, POSTS.Body, POSTS.Title FROM POSTS");
 mysqli_close($conn);
 
 

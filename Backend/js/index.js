@@ -127,28 +127,21 @@ window.onload = function(){
     });
     
         $("button#CreateSub").click(function (){
-        var sid = $("#studentid2").val();
         var pass = $("#password2").val();
-        var first = $("#firstname").val();
-        var last = $("#lastname").val();
+        var studid = $("#username").val();
         var email = $("#email").val();
-        var course = $("#course").val();
-            
         
-        if(sid==""||pass==""||first==""||last==""||email==""||course=="")
+        if(pass==""||studid==""||email=="")
             $("div#CreateAck").html("Please fill all the details");
-        else
+        else {
             $.ajax ({
                 type:'post',
                 url:'includes/createSQL.php',
                 data: {
                     check: "check",
-                    studentid:sid,
                     password:pass,
-                    firstname:first,
-                    lastname:last,
-                    email:email,
-                    course:course
+                    username:studid,
+                    email:email
                 },
                 success:function(response) {
                     if (response==1)
@@ -162,7 +155,8 @@ window.onload = function(){
                     $("#CreateAck").html(msg);
                 },
             });
-        $("#myCreate ").submit( function(){
+        }
+        $("#myCreate").submit( function(){
             return false;
         });
     });

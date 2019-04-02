@@ -17,22 +17,18 @@
 
 <div class="container">
     <form id="myForm" action="includes/check.php" method="post">
-    <input name="studentid"  id="studentid" type="text" placeholder="Enter Student ID"/>
-    <input name="password" id="password" type="password" placeholder="Enter Password"/>
-    
+        <input name="studentid"  id="studentid" type="text" placeholder="Enter Student ID"/>
+        <input name="password" id="password" type="password" placeholder="Enter Password"/>
     <button id="submit">Login</button>
     </form>
     
     <div id="ack"></div>
     
-    <form id="myCreate" action="includes/createSQL.php" method="post">
-    <input name="email" id="email" type="text" placeholder="Email"/>
-    <input name="firstname" id="firstname" type="text" placeholder="Firstname"/>
-    <input name="lastname" id="lastname" type="text" placeholder="Lastname"/>
-    <input name="course" id="course" type="text" placeholder="course"/>
-    <input name="studentid2"  id="studentid2" type="text" placeholder="Enter Student ID"/>
-    <input name="password2" id="password2" type="password" placeholder="Enter Password"/>   
-    <button id="CreateSub">Create Account</button>
+    <form id="myCreate">
+        <input name="email" id="email" type="text" placeholder="Student Email"/>
+        <input name="username" id="username" type="text" placeholder="Student ID"/>
+        <input name="password2" id="password2" type="password" placeholder="Enter Password"/>   
+        <button id="CreateSub">Create Account</button>
     </form>   
     <div id="CreateAck"></div>
 </div>

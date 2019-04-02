@@ -1,7 +1,9 @@
 <?php
     while ($mem = mysqli_fetch_object($result)) {
-        $posts[] = $mem;
+        $POSTS[] = $mem;
     }
+
+    //$artquery = $conn->query("SELECT LIKES.UserID, LIKES");
 ?>    
 
 <section class="middle">
@@ -17,15 +19,15 @@
         
         <div id="PostAck"></div>
         
-        <?php foreach($posts as $post): ?>
+        <?php foreach($POSTS as $post): ?>
             <div>
-                <h3><?php echo $post->P_Title; ?></h3>
-                <p><?php echo $post->P_description; ?></p>
-                <button class="likeBtn" id="<?php echo $post->P_id; ?>">Like</button>
-                <button class="DisBtn" id="<?php echo $post->P_id; ?>">Dislike</button>
-                <?php if ($post->U_id == $_SESSION["U_id"]) {?>
-                    <button class="Edtbtn" data-toggle="modal" data-target="#myModal" id="<?php echo $post->P_id; ?>">Edit</button>
-                    <button class="Delbtn" id="<?php echo $post->P_id; ?>">Delete</button>
+                <p><?php echo $post->Body; ?></p>
+                <button class="likeBtn" id="<?php echo $post->PostID; ?>">Like</button>
+                <button class="DisBtn" id="<?php echo $post->PostID; ?>">Dislike</button>
+                
+                <?php if ($post->UserID == $_SESSION["U_id"]) {?>
+                    <button class="Edtbtn" data-toggle="modal" data-target="#myModal" id="<?php echo $post->PostID; ?>">Edit</button>
+                    <button class="Delbtn" id="<?php echo $post->PostID; ?>">Delete</button>
                 <?php } ?>
             </div>
         <?php endforeach; ?>

@@ -9,33 +9,33 @@ if(isset($_POST['check'])) {
     
     switch($type) {
         case 'likeBtn':
-            $sql = "INSERT INTO post_likes (U_id, P_id)
+            $sql = "INSERT INTO LIKES (UserID, PostID)
                 SELECT {$_SESSION['U_id']}, {$id}
                 FROM posts WHERE EXISTS (
-                    SELECT P_id
-                    FROM posts
-                    WHERE P_id = {$id})
+                    SELECT PostID
+                    FROM POSTS
+                    WHERE PostID = {$id})
                 AND NOT EXISTS (
-                    SELECT Like_id
-                    FROM post_likes
-                    WHERE  U_id = {$_SESSION['U_id']}
-                    AND P_id = {$id})
+                    SELECT UserID
+                    FROM POSTS
+                    WHERE  UserID = {$_SESSION['U_id']}
+                    AND PostID = {$id})
                     LIMIT 1";
             mysqli_query($conn, $sql);
             echo "1";
             break;
         case 'DisBtn':
-            $sql = "DELETE FROM post_likes
-                    WHERE P_id = {$id}
-                    AND U_id = {$_SESSION['U_id']}
+            $sql = "DELETE FROM LIKES
+                    WHERE PostID = {$id}
+                    AND UserID = {$_SESSION['U_id']}
                     LIMIT 1";
             mysqli_query($conn, $sql);
             echo "1";
             break;
             
         case 'Delbtn':
-            $sql = "DELETE FROM posts
-                    WHERE P_id = {$id}
+            $sql = "DELETE FROM POSTS
+                    WHERE PostID = {$id}
                     LIMIT 1";
             mysqli_query($conn, $sql);
             echo "1";

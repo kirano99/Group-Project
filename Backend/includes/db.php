@@ -1,7 +1,7 @@
 <?php
         //saves the login details for the local database
         $servername = 'barnumdesigns.gigapages.net';
-        $dbname = 'barnunpage_SwanHub';
+        $dbname = 'barnunpage_swanhub';
         $username = 'barnunpage_Admin';
         $password = 'BnB~9r,+';
 

@@ -7,19 +7,18 @@ require 'db.php';
 $studid = mysqli_real_escape_string($conn, $_POST['studentid']);
 $pass = mysqli_real_escape_string($conn, $_POST['password']);
     
-$sqlPass = "select password, U_id from users where StudentID = '$studid'";
+$sqlPass = "SELECT UserPassword, UserID from USERS where Username = '$studid'";
 $PassRes = mysqli_query($conn, $sqlPass);
 if ($PassRes->num_rows > 0)
 {
     while ($row = $PassRes->fetch_assoc()) {
-    //echo $row['password']; 
-    //$hashedPass = password_hash($, PASSWORD_DEFAULT);
-     if(password_verify($pass, $row['password'])) {
-          $_SESSION['U_id'] = $row['U_id'];
-         echo "1";
-     } else {
-         echo "0";
-     }
+        //$hashedPass = password_hash($, PASSWORD_DEFAULT);
+         if(password_verify($pass, $row['UserPassword'])) {
+              $_SESSION['U_id'] = $row['UserID'];
+             echo "1";
+         } else {
+             echo "fail";
+         }
     }
 } else {
     echo "0";
