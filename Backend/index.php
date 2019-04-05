@@ -148,31 +148,5 @@ echo $link;
 
     <div class="site-cache" id="site-cache"></div>
   <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script>
-  // Get the modal
-  var modal = document.getElementById('imageModal');
-
-  // Get the image and insert it inside the modal - use its "alt" text as a caption
-  var img = document.getElementsByClassName('postcontent');
-  var modalImg = document.getElementById("img");
-  var captionText = document.getElementById("caption");
-
-  for (var i=0; i < img.length; i++) {
-      img[i].onclick = function(){
-          modal.style.display = "block";
-    		modalImg.src = this.getElementsByTagName('img')[0].src;
-    			captionText.innerHTML = this.getElementsByTagName('p')[0].innerHTML;
-      }
-  };
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-  </script>
   </body>
   </html>
