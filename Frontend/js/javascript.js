@@ -21,12 +21,10 @@ $(document).ready(function() {
     $("#logo-id").change(function() {
         readURL(this);
     });
-});
-
-$( document ).ready(function() {
   $( '[data-toggle="tooltip"]' ).each(function() {
     new Tooltip($(this), {
       placement: 'bottom',
+
     });
   });
 });

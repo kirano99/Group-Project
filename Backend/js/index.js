@@ -252,3 +252,56 @@ window.onload = function(){
         });
     });
 }
+
+$('select').selectpicker();
+
+$(document).ready(function() {
+    var brand = document.getElementById('logo-id');
+    brand.className = 'attachment_upload';
+    brand.onchange = function() {
+        document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+    };
+
+    // Source: http://stackoverflow.com/a/4459419/6396981
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('.img-preview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#logo-id").change(function() {
+        readURL(this);
+    });
+  $( '[data-toggle="tooltip"]' ).each(function() {
+    new Tooltip($(this), {
+      placement: 'bottom',
+
+    });
+  });
+  var modal = document.getElementById('imageModal');
+
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementsByClassName('postcontent');
+  var modalImg = document.getElementById("img");
+  var captionText = document.getElementById("caption");
+
+  for (var i=0; i < img.length; i++) {
+      img[i].onclick = function(){
+          modal.style.display = "block";
+    		modalImg.src = this.getElementsByTagName('img')[0].src;
+    			captionText.innerHTML = this.getElementsByTagName('p')[0].innerHTML;
+      }
+  };
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+});
