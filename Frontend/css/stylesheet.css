@@ -173,7 +173,17 @@ header {
 .btn-danger {
     background-color: #B73333;
 }
-
+.profileimage{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+}
+.profile{
+  margin-top:30px;
+  padding-right:0px;
+  padding-left: 0px;
+}
 /* File Upload */
 .fake-shadow {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
