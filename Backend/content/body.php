@@ -4,7 +4,7 @@
     }
 
     //$artquery = $conn->query("SELECT LIKES.UserID, LIKES");
-?>    
+?>
 
 <div class="container-fluid" style="margin-top:30px">
       <div class="row">
@@ -38,7 +38,7 @@
           </div>
 
         <div id="PostAck"></div>
-        
+
         <?php foreach($POSTS as $post): ?>
         <div class="post">
             <div class="userdetails">
@@ -61,16 +61,16 @@
                     <a href="#"><i class="far fa-thumbs-up" id="<?php echo $post->PostID; ?>"></i></a>
                     <a href="#"><i class="far fa-comment-alt"></i></a>
                     <button class="Edtbtn" data-toggle="modal" data-target="#myModal" id="<?php echo $post->PostID; ?>">Edit</button>
-                    <button class="Delbtn" id="<?php echo $post->PostID; ?>">Delete</button> 
+                    <button class="Delbtn" id="<?php echo $post->PostID; ?>">Delete</button>
                 <?php if ($post->UserID == $_SESSION["U_id"]) {?>
-                    
+
                 <?php } ?>
-                    
+
                 </div>
           </div>
         <?php endforeach; ?>
     </div>
-        
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -90,14 +90,14 @@
           </div>
         </div>
     </div>
-    
+
     <!-- The Modal -->
       <div id="imageModal" class="">
         <span class="close">&times;</span>
         <img class="modal-content" id="img">
         <div id="caption"></div>
       </div>
-    </div>    
+    </div>
 
     <div class="site-cache" id="site-cache"></div>
 
