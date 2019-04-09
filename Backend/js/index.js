@@ -67,6 +67,23 @@ window.onload = function(){
         });
     });
     
+    $(".ComBtn").click(function (){
+        var obj = this.id;
+        
+        $.ajax ({
+            type: 'POST',
+            url: 'includes/gather.php',
+            data: {
+                check:'comm',
+                P_id: obj
+            },
+            
+            success: function(data) {
+                
+            }
+        });
+    });
+    
     $(".Delbtn").click(function (){
         var obj = this.id;
         var clsobj = this.className;
@@ -145,7 +162,7 @@ window.onload = function(){
                     if (response==1)
                         {
                             msg = "Account created";
-                            window.location = "https://barnumdesigns.xyz/uni/EditProf.php";
+                            window.location = "EditProf.php";
                         }
                     else 
                         {
@@ -165,7 +182,7 @@ window.onload = function(){
             type:'post',
             url:'includes/logout.php',
             success:function(response) {
-                window.location.href = "https://barnumdesigns.xyz/uni/login.php";
+                window.location.href = "login.php";
             }
         }) 
     });
@@ -252,6 +269,7 @@ window.onload = function(){
         var first = $("#fname").val();
         var last = $("#lname").val();
         var dob = $("#dob").val();
+        //var list = $("#clist").val();
         
         if(first==""||last==""||dob=="") {
             
@@ -263,7 +281,8 @@ window.onload = function(){
                     check: "profile",
                     first:first,
                     last:last,
-                    dob:dob
+                    dob:dob,
+                    //list:list
                 },
                 success:function(response) {
                     alert("Account updated");    

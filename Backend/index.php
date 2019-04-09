@@ -7,8 +7,20 @@ session_start();
 require 'includes/db.php';
 
 
-$result = $conn->query("SELECT POSTS.UserID, POSTS.PostID, POSTS.Body, POSTS.DatePosted FROM POSTS");
-mysqli_close($conn);
+$result = $conn->query("SELECT POSTS.UserID, POSTS.PostID, POSTS.Body, POSTS.DatePosted,
+COUNT(LIKES.LikeID) AS likes, USER_PROFILE.First_Name AS fname, USER_PROFILE.Last_Name AS lname, COMMENTS.CommentText AS comment 
+
+FROM POSTS
+
+LEFT JOIN LIKES
+ON POSTS.PostID = LIKES.PostID
+LEFT JOIN USER_PROFILE
+ON POSTS.UserID = USER_PROFILE.UserID
+LEFT JOIN COMMENTS
+ON POSTS.PostID = COMMENTS.PostID
+GROUP BY POSTS.PostID
+");
+
 
 
 function redirect($url)

@@ -18,7 +18,7 @@ if(isset($_POST['check'])) {
                 AND NOT EXISTS (
                     SELECT UserID
                     FROM LIKES
-                    WHERE  UserID = {$_SESSION['U_id']}
+                    WHERE UserID = {$_SESSION['U_id']}
                     AND PostID = {$id})
                     LIMIT 1";
                 if (mysqli_query($conn, $sql)) {

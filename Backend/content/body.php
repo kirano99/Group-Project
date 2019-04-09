@@ -1,10 +1,17 @@
 <?php
+    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
     while ($mem = mysqli_fetch_object($result)) {
         $POSTS[] = $mem;
     }
 
-    //$artquery = $conn->query("SELECT LIKES.UserID, LIKES");
-?>
+    $comes = $conn->query("SELECT COMMENTS.CommentText, COMMENTS.DateTimeCommented, COMMENTS.PostID, COMMENTS.UserID FROM COMMENTS");
+
+    while ($mem2 = mysqli_fetch_object($comes)) {
+        $COMMENTS[] = $mem2;
+    }
+?>    
 
 <div class="container-fluid" style="margin-top:30px">
       <div class="row">
@@ -38,7 +45,7 @@
           </div>
 
         <div id="PostAck"></div>
-
+        
         <?php foreach($POSTS as $post): ?>
         <div class="post">
             <div class="userdetails">
@@ -46,7 +53,7 @@
                   <img src="assets/account1.jpg" class="rounded" />
               </div>
               <div class="accountname">
-                <h4>Ronald McDonald Trump</h4>
+                <h4><?php echo $post->fname; ?> <?php echo $post->lname; ?></h4>
               </div>
               <div class="postdatetime">
                 <i><?php echo $post->DatePosted; ?></i>
@@ -54,23 +61,26 @@
             </div>
             <div class="postcontent">
               <p><?php echo $post->Body; ?></p>
-              <img src="assets/whitehouse.jpg" />
+              <img src="" />
               <br>
             </div>
                 <div class="d-flex justify-content-around mb-2 review">
-                    <a href="#"><i class="far fa-thumbs-up" id="<?php echo $post->PostID; ?>"></i></a>
+                    <button class="likeBtn" id="<?php echo $post->PostID; ?>"><i class="likeBtn far fa-thumbs-up"></i></button>
+                    <p><?php echo $post->likes; ?></p>
                     <a href="#"><i class="far fa-comment-alt"></i></a>
-                    <button class="Edtbtn" data-toggle="modal" data-target="#myModal" id="<?php echo $post->PostID; ?>">Edit</button>
-                    <button class="Delbtn" id="<?php echo $post->PostID; ?>">Delete</button>
                 <?php if ($post->UserID == $_SESSION["U_id"]) {?>
-
+                    <button class="Edtbtn" data-toggle="modal" data-target="#myModal" id="<?php echo $post->PostID; ?>">Edit</button>
+                    <button class="Delbtn" id="<?php echo $post->PostID; ?>">Delete</button> 
                 <?php } ?>
-
+                    
                 </div>
+                    <?php ?>
+                        <p><?php $post->comment; ?></p>
+                    <?php ?>
           </div>
         <?php endforeach; ?>
     </div>
-
+        
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -90,14 +100,33 @@
           </div>
         </div>
     </div>
-
+    
+        <div class="modal fade" id="myComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr_only">Close</span></button>
+                <h4 class="modal-title" id="memberModalLabel">details</h4>
+                </div>
+                <form id="EditPost">
+                    <input name="dash" id="dash"/>
+                    <button type="button" id="ChngPost" class="btn btn-secondary">Change</button>
+                </form>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
     <!-- The Modal -->
       <div id="imageModal" class="">
         <span class="close">&times;</span>
         <img class="modal-content" id="img">
         <div id="caption"></div>
       </div>
-    </div>
+    </div>    
 
     <div class="site-cache" id="site-cache"></div>
 

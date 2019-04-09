@@ -34,6 +34,7 @@ if (isset($_POST['check']))
             $first = mysqli_real_escape_string($conn, $_POST['first']);
             $last = mysqli_real_escape_string($conn, $_POST['last']);
             $dob = mysqli_real_escape_string($conn, $_POST['dob']);
+            //$list = mysqli_real_escape_string($conn, $_POST['list']);
             
             $id =  $_SESSION['U_id'];
             

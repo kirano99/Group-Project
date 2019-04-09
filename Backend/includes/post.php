@@ -35,6 +35,9 @@ if(isset($_POST['check']))
             $conn->close();
             
             break;
+        case 'comment':
+            $sql
+            break;
     }
     
     
