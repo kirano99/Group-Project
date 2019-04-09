@@ -22,13 +22,13 @@ mysqli_close($conn);
           <h3>Links</h3>
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="events.html">Events</a>
+              <a class="nav-link" href="events.php">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="courseselect.html">Course</a>
+              <a class="nav-link" href="courseselect.php">Course</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="socselect.html">Societies</a>
+              <a class="nav-link" href="socselect.php">Societies</a>
             </li>
           </ul>
           <hr class="d-sm-none">

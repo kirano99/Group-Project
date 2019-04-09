@@ -22,25 +22,25 @@ mysqli_close($conn);
           <h3>Links</h3>
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="events.html">Events</a>
+              <a class="nav-link" href="events.php">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="courseselect.html">Course</a>
+              <a class="nav-link" href="courseselect.php">Course</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="socselect.html">Societies</a>
+              <a class="nav-link" href="socselect.php">Societies</a>
             </li>
           </ul>
           <hr class="d-sm-none">
         </div>
         <div class="col-sm-6">
-          <a href="courses.html">
+          <a href="courses.php">
             <div class="jumbotron courseimg" style='background-image: url("assets/compsci.jpg");'>
               <h1>Computer Science</h1>
               <p>The sooner you realise Kevin isn't funny, the better</p>
             </div>
           </a>
-          <a href="courses.html">
+          <a href="courses.php">
             <div class="jumbotron courseimg"  style='background-image: url("assets/maths.jpg");'>
               <h1>Maths</h1>
               <p>Good luck mate</p>

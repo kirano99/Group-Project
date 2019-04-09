@@ -1,6 +1,6 @@
 <?php
     error_reporting(E_ALL);
-ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
 
     while ($mem = mysqli_fetch_object($result)) {
         $POSTS[] = $mem;
@@ -21,13 +21,13 @@ ini_set('display_errors', 1);
           <h3>Links</h3>
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="events.html">Events</a>
+              <a class="nav-link" href="events.php">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="courseselect.html">Course</a>
+              <a class="nav-link" href="courseselect.php">Course</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="socselect.html">Societies</a>
+              <a class="nav-link" href="socselect.php">Societies</a>
             </li>
           </ul>
           <hr class="d-sm-none">
@@ -65,12 +65,12 @@ ini_set('display_errors', 1);
               <br>
             </div>
                 <div class="d-flex justify-content-around mb-2 review">
-                    <button class="likeBtn" id="<?php echo $post->PostID; ?>"><i class="likeBtn far fa-thumbs-up"></i></button>
+                    <button class="likeBtn postButtons" id="<?php echo $post->PostID; ?>"><i class="likeBtn far fa-thumbs-up"></i></button>
                     <p><?php echo $post->likes; ?></p>
                     <a href="#"><i class="far fa-comment-alt"></i></a>
                 <?php if ($post->UserID == $_SESSION["U_id"]) {?>
-                    <button class="Edtbtn" data-toggle="modal" data-target="#myModal" id="<?php echo $post->PostID; ?>">Edit</button>
-                    <button class="Delbtn" id="<?php echo $post->PostID; ?>">Delete</button> 
+                    <button class="Edtbtn btn btn-primary" data-toggle="modal" data-target="#myModal" id="<?php echo $post->PostID; ?>">Edit</button>
+                    <button class="Delbtn btn btn-primary" id="<?php echo $post->PostID; ?>">Delete</button> 
                 <?php } ?>
                     
                 </div>
@@ -121,42 +121,38 @@ ini_set('display_errors', 1);
     </div>
     
     <!-- The Modal -->
-      <div id="imageModal" class="">
+    <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img">
         <div id="caption"></div>
       </div>
-    </div>    
+    </div>
 
     <div class="site-cache" id="site-cache"></div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script>
+  // Get the modal
+  var modal = document.getElementById('imageModal');
 
-    <script>
-        //James's Js
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementsByClassName('postcontent');
+  var modalImg = document.getElementById("img");
+  var captionText = document.getElementById("caption");
 
-        var brand = document.getElementById('logo-id');
-        brand.className = 'attachment_upload';
-        brand.onchange = function() {
-            document.getElementById('fakeUploadLogo').value = this.value.substring(12);
-        };
+  for (var i=0; i < img.length; i++) {
+      img[i].onclick = function(){
+          modal.style.display = "block";
+    		modalImg.src = this.getElementsByTagName('img')[0].src;
+    			captionText.innerHTML = this.getElementsByTagName('p')[0].innerHTML;
+      }
+  };
 
-        // Source: http://stackoverflow.com/a/4459419/6396981
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
 
-                reader.onload = function(e) {
-                    $('.img-preview').attr('src', e.target.result);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#logo-id").change(function() {
-            readURL(this);
-        });
-      $( '[data-toggle="tooltip"]' ).each(function() {
-        new Tooltip($(this), {
-          placement: 'bottom',
-
-        });
-      });
-    </script>
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  </script>

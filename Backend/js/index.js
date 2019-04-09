@@ -57,11 +57,11 @@ window.onload = function(){
                 P_id: obj
             },
             
-            success: function(data) {
-                console.log(data);
+            success: function(response) {
+                console.log(response);
             },
-             error: function (xhr, ajaxOptions, thrownError) {
-                   alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
                  
             },
         });
@@ -78,33 +78,36 @@ window.onload = function(){
                 P_id: obj
             },
             
-            success: function(data) {
+            success: function(response) {
                 
-            }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr + " - " + ajaxOptions + " - " + thrownError);
+              
+         },
         });
     });
     
     $(".Delbtn").click(function (){
         var obj = this.id;
-        var clsobj = this.className;
+        var clsobj = "Delbtn";
         
         $.ajax ({
-            type: 'POST',
-            url: 'includes/like.php',
+            type:'POST',
+            url:'includes/like.php',
             data: {
                 check:clsobj,
                 P_id: obj
-            },
-            
-             success: function(data) {
-                console.log(data);
-                 location.reload();
+            },     
+
+            success: function(response) {
+                alert(response);
             },
              error: function (xhr, ajaxOptions, thrownError) {
                    alert(xhr + " - " + ajaxOptions + " - " + thrownError);
                  
             },
-        })
+        });
     });
     
     $("button#LogBtn").click(function (){
@@ -126,7 +129,7 @@ window.onload = function(){
                 success:function(response) {
                     if (response==1)
                         {
-                           window.location.href = "https://barnumdesigns.xyz/uni/index.php";
+                           window.location.href = "https://barnumdesigns.xyz/barnumdesigns.xyz/scrubs/index.php";
                         }
                     else 
                         {
@@ -216,7 +219,7 @@ window.onload = function(){
             }
             });
         }
-        $("#MyPost").submit( function(){
+        $("#myPost").submit( function(){
             return false;
         });
     });

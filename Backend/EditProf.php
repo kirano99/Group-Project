@@ -41,17 +41,17 @@ mysqli_close($conn);
                 <form id="myAccount">
                   <div class="form-group">
                     <label for="fname">First Name:</label>
-                    <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="fname" value="<?php echo $info->First_Name; ?>" required>
+                    <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="fname" value="<?php echo $info->First_Name; ?>" >
                   </div>
                     
                   <div class="form-group">
                     <label for="lname">Last Name:</label>
-                    <input type="text" class="form-control" id="lname" placeholder="Enter lastname" name="lname" value="<?php echo $info->Last_Name; ?>" required>
+                    <input type="text" class="form-control" id="lname" placeholder="Enter lastname" name="lname" value="<?php echo $info->Last_Name; ?>" >
                   </div>
                     
                   <div class="form-group">
                     <label for="dob">Date of Birth:</label>
-                    <input type="date" class="form-control" id="dob" name="dob" value="<?php $info->DOB; ?>" required>
+                    <input type="date" class="form-control" id="dob" name="dob" value="<?php $info->DOB; ?>" >
                   </div>
                     
                   <div class="form-group">
@@ -64,24 +64,19 @@ mysqli_close($conn);
                   </div>
                     
                   <div class="form-group">
-                    <div class="main-img-preview">
-                      <img class="thumbnail img-preview" src="http://farm4.static.flickr.com/3316/3546531954_eef60a3d37.jpg" title="Preview Logo">
-                    </div>
                       
-                    <div class="input-group">
-                      <input id="fakeUploadLogo" class="form-control fake-shadow" placeholder="Choose File" disabled="disabled">
-                      <div class="input-group-btn">
-                        <div class="fileUpload btn fake-shadow">
-                          <span><i class="glyphicon glyphicon-upload"></i> Upload Image</span>
-                          <input id="logo-id" name="logo" type="file" class="attachment_upload">
-                        </div>
-                      </div>
+                    <div class="col-sm-8">
+                      <div class= "post">
                     </div>
                      <?php endforeach; ?> 
                   <br>
                   <button id="AccBtn" type="submit" class="btn btn-primary">Submit</button> 
                 </div>
             </form>
+            <form action="includes/image.php" method="post" enctype="multipart/form-data">
+                          <input type="file" name="file" id="file">
+                          <input type="submit" class="btn btn-primary" value="Upload" name="submit">
+                      </form>
               
         <div class="col-sm-3 whitespace">
         </div>
@@ -89,6 +84,38 @@ mysqli_close($conn);
             
     </div>
     <div class="site-cache" id="site-cache"></div>
+
+    <script>
+      /*
+      $('select').selectpicker();
+         var brand = document.getElementById('logo-id');
+    brand.className = 'attachment_upload';
+    brand.onchange = function() {
+        document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+    };
+
+    // Source: http://stackoverflow.com/a/4459419/6396981
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('.img-preview').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#logo-id").change(function() {
+        readURL(this);
+    });
+  $( '[data-toggle="tooltip"]' ).each(function() {
+    new Tooltip($(this), {
+      placement: 'bottom',
+
+    });
+  });
+  */
+    </script>
 <?php
   require 'content/footer.php';        
 ?>

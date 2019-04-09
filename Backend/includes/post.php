@@ -36,7 +36,7 @@ if(isset($_POST['check']))
             
             break;
         case 'comment':
-            $sql
+
             break;
     }
     

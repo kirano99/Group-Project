@@ -206,6 +206,10 @@ header {
 .img-preview {
     max-width: 30%;
 }
+.postButtons{
+  border: 0;
+  background-color: transparent;
+}
 /* RESPONSIVE */
 @media only screen and (max-width: 1300px) {
   .container-fluid {

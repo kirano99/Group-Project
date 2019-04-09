@@ -3,6 +3,7 @@ session_start();
 
 require 'db.php';
 
+
 if(isset($_POST['check'])) {
     $type = $_POST['check'];
     $id = $_POST['P_id'];
@@ -50,6 +51,6 @@ if(isset($_POST['check'])) {
                 }
             break;
     }
-     $conn->close();
+    $conn->close();
 }
 ?>

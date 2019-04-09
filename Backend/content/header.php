@@ -28,19 +28,17 @@
 <header>
           <a href="#" class="icon" id="icon"></a>
           <nav class="menu">
-          <a href="#">
+          <a href="index.php">
           <img alt="logo" id="logo" src="assets/logo.png">
           </a>
           </nav>
           <div class="socials">
+          <a href="index.php"><i class="fas fa-home home"></i></a>
             <a href="#"><i class="fas fa-bell"></i></a>
             <a href="#"><i class="fas fa-comment"></i></a>
-            <a href="EditProf.php"><i class="fas fa-user"></i></a>
-            <?php
-              if(isset($_SESSION["U_id"]))
-              {
-                  echo '<button id="logout">Logout</button>';
-              }
-            ?>
+            <a href="account.php"><i class="fas fa-user"></i></a>
           </div>
         </header>
+
+        <?php
+        ?>
