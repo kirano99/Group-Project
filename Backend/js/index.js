@@ -25,13 +25,12 @@ window.onload = function(){
     
     $(".likeBtn").click(function (){
         var obj = this.id;
-        var clsobj = this.className;
         
         $.ajax ({
             type: 'POST',
             url: 'includes/like.php',
             data: {
-                check: clsobj,
+                check: "likeBtn",
                 P_id: obj
             },
             
@@ -129,7 +128,7 @@ window.onload = function(){
                 success:function(response) {
                     if (response==1)
                         {
-                           window.location.href = "https://barnumdesigns.xyz/barnumdesigns.xyz/scrubs/index.php";
+                           window.location.href = "index.php";
                         }
                     else 
                         {
@@ -224,6 +223,7 @@ window.onload = function(){
         });
     });
     
+
     $("button.Edtbtn").click(function (){
         tmp_id = this.id;
         

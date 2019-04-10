@@ -17,7 +17,7 @@ session_start();
   };
 
   $result = $conn->query("SELECT POSTS.UserID, POSTS.PostID, POSTS.Body, POSTS.DatePosted,
-  COUNT(LIKES.LikeID) AS likes, USER_PROFILE.First_Name AS fname, USER_PROFILE.Last_Name AS lname, COMMENTS.CommentText AS comment, MEDIA.MediaInfo AS img
+  COUNT(LIKES.LikeID) AS likes, USER_PROFILE.First_Name AS fname, USER_PROFILE.Last_Name AS lname, MEDIA.MediaInfo AS img
   
   FROM POSTS
   
@@ -25,8 +25,6 @@ session_start();
   ON POSTS.PostID = LIKES.PostID
   LEFT JOIN USER_PROFILE
   ON POSTS.UserID = USER_PROFILE.UserID
-  LEFT JOIN COMMENTS
-  ON POSTS.PostID = COMMENTS.PostID
   LEFT JOIN MEDIA
   ON POSTS.PostID = MEDIA.PostID
   GROUP BY POSTS.PostID
@@ -132,9 +130,21 @@ session_start();
                 <?php } ?>
                     
                 </div>
-                    <?php ?>
-                        <p><?php $post->comment; ?></p>
-                    <?php ?>
+                    <?php 
+                        $x = $post->PostID;
+                        $com = $conn->query("SELECT CommentText, DateTimeCommented FROM COMMENTS WHERE PostID = '$x'");
+                        
+                        if ($com->num_rows > 0) {
+                                while ($mem = mysqli_fetch_object($com)) {
+                                  $CMT[] = $mem;
+                                };
+
+                                foreach($CMT as $comment):
+                            ?>
+                                <p><?php echo $comment->CommentText; ?> <span> <?php echo $comment->DateTimeCommented; ?></span></p>
+                            <?php endforeach; 
+                        }
+                        ?>
           </div>
                 <?php } ?>
         <?php endforeach; ?>
